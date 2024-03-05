@@ -1,0 +1,100 @@
+<div class="d-flex align-items-center justify-content-between flex-wrap mt-5 mb-4 border-bottom">
+  <h2 class="section-title mb-4">{{ getFormTitle() }}</h2>
+  <div class="d-flex gap-2 mb-3">
+    <a class="btn btn-outline-secondary" routerLink="/users">Cancelar</a>
+    <button type="button" class="btn btn-primary" (click)="saveUser()" [disabled]="this.userForm.invalid">Guardar Usuario</button>
+  </div>
+</div>
+
+<form class="mb-5" [formGroup]="userForm" (ngSubmit)="saveUser()">
+  <!-- Email -->
+  <div class="mb-3">
+    <label for="emailInput" class="form-label">Email</label>
+    <input type="email" formControlName="email" class="form-control {{ hasError('email') ? 'is-invalid' : '' }}" id="emailInput" placeholder="usuario@example.com">
+    <div class="invalid-feedback" [ngSwitch]="getCurrentError('email')">
+      <span *ngSwitchCase="'required'">El campo email es requerido</span>
+      <span *ngSwitchCase="'email'">Por favor, ingrese un email válido</span>
+      <!-- Agrega validaciones adicionales según sea necesario -->
+    </div>
+  </div>
+
+  <!-- Nombre -->
+  <div class="mb-3">
+    <label for="nombreInput" class="form-label">Nombre</label>
+    <input type="text" formControlName="name" class="form-control {{ hasError('name') ? 'is-invalid' : '' }}" id="nombreInput" placeholder="Nombre completo">
+    <div class="invalid-feedback" [ngSwitch]="getCurrentError('name')">
+      <span *ngSwitchCase="'required'">El campo name es requerido</span>
+      <span *ngSwitchCase="'maxlength'">El campo name debe contener 100 caracteres como máximo</span>
+      <!-- Agrega validaciones adicionales según sea necesario -->
+    </div>
+  </div>
+
+  <!-- Número Celular -->
+  <div class="mb-3">
+    <label for="numeroCelularInput" class="form-label">Número Celular</label>
+    <input type="tel" formControlName="numero_celular" class="form-control {{ hasError('numero_celular') ? 'is-invalid' : '' }}" id="numeroCelularInput" placeholder="Número de celular (opcional)">
+    <div class="invalid-feedback" [ngSwitch]="getCurrentError('numero_celular')">
+      <span *ngSwitchCase="'pattern'">Por favor, ingrese un número de celular válido</span>
+      <!-- Agrega validaciones adicionales según sea necesario -->
+    </div>
+  </div>
+
+  <!-- Cédula -->
+  <div class="mb-3">
+    <label for="cedulaInput" class="form-label">Cédula</label>
+    <input type="text" formControlName="cedula" class="form-control {{ hasError('cedula') ? 'is-invalid' : '' }}" id="cedulaInput" placeholder="Número de cédula">
+    <div class="invalid-feedback" [ngSwitch]="getCurrentError('cedula')">
+      <span *ngSwitchCase="'required'">El campo cédula es requerido</span>
+      <span *ngSwitchCase="'maxlength'">El campo cédula debe contener 11 caracteres como máximo</span>
+      <!-- Agrega validaciones adicionales según sea necesario -->
+    </div>
+  </div>
+
+  <!-- Fecha de Nacimiento -->
+  <div class="mb-3">
+    <label for="fechaNacimientoInput" class="form-label">Fecha de Nacimiento</label>
+    <input type="date" formControlName="fecha_nacimiento" class="form-control {{ hasError('fecha_nacimiento') ? 'is-invalid' : '' }}" id="fechaNacimientoInput">
+    <div class="invalid-feedback" [ngSwitch]="getCurrentError('fecha_nacimiento')">
+      <span *ngSwitchCase="'required'">El campo fecha de nacimiento es requerido</span>
+      <span *ngSwitchCase="'invalidAge'">El usuario debe tener al menos 18 años.</span>
+    </div>
+  </div>
+
+
+  <!-- Código de Ciudad -->
+  <div class="mb-3">
+    <label for="codigoCiudadInput" class="form-label">Código de Ciudad</label>
+    <input type="number" formControlName="codigo_ciudad" class="form-control {{ hasError('codigo_ciudad') ? 'is-invalid' : '' }}" id="codigoCiudadInput" placeholder="Código de ciudad">
+    <div class="invalid-feedback" [ngSwitch]="getCurrentError('codigo_ciudad')">
+      <span *ngSwitchCase="'required'">El campo código de ciudad es requerido</span>
+      <span *ngSwitchCase="'pattern'">Por favor, ingrese un código de ciudad válido</span>
+    </div>
+  </div>
+
+  <!-- Contraseña -->
+<div class="mb-3">
+  <label for="passwordInput" class="form-label">Contraseña</label>
+  <input type="password" formControlName="password" class="form-control {{ hasError('password') ? 'is-invalid' : '' }}" id="passwordInput" placeholder="Contraseña">
+  <div class="invalid-feedback" [ngSwitch]="getCurrentError('password')">
+    <span *ngSwitchCase="'required'">El campo contraseña es requerido</span>
+    <span *ngSwitchCase="'minlength'">La contraseña debe tener al menos 8 caracteres</span>
+    <!-- Agrega validaciones adicionales según sea necesario -->
+  </div>
+</div>
+
+<!-- Verificación de Contraseña -->
+<div class="mb-3">
+  <label for="password_confirmationInput" class="form-label">Verificación de Contraseña</label>
+  <input type="password" formControlName="password_confirmation" class="form-control {{ hasError('password_confirmation') ? 'is-invalid' : '' }}" id="passwordConfirmationInput" placeholder="Verificación de contraseña">
+  <div class="invalid-feedback" [ngSwitch]="getCurrentError('password_confirmation')">
+    <span *ngSwitchCase="'required'">La verificación de contraseña es requerida</span>
+    <span *ngSwitchCase="'mustMatch'">Las contraseñas deben coincidir</span>
+    <!-- Agrega validaciones adicionales según sea necesario -->
+  </div>
+</div>
+
+
+  <button type="submit" class="btn btn-primary" [disabled]="this.userForm.invalid">Guardar Usuario</button>
+</form>
+
+

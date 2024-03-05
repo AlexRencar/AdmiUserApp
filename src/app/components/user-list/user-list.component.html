@@ -1,0 +1,47 @@
+<div class="d-flex align-items-center justify-content-between gap-2 flex-wrap mt-5 mb-4">
+  <h2 class="section-title">Usuarios</h2>
+
+  <div class="d-flex align-items-center flex-wrap gap-3 gap-sm-5">
+    <p class="m-0 total-spent-text">Total Usuarios Registrados: <span class="fw-bold ms-1"> {{ total }}</span></p>
+    <a class="btn btn-primary" routerLink="/users/nuevo">Agregar Usuario</a>
+  </div>
+</div>
+
+<div class="table-responsive mb-5">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Cedula</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Email</th>        
+        <th scope="col">Rol</th>
+        <th scope="col" width="180">Fecha de Nacimiento</th>
+        <th scope="col" class="table-head-action"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="users.length; else emptyMessage">
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.cedula }}</td>
+          <td>{{ user.numero_celular }}</td>          
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+          <td>{{ user.fecha_nacimiento | date:'dd/MM/Y' }}</td>
+          <td class="table-data-action">
+            <div>
+              <a [routerLink]="['/users', user.id, 'editar']"><i class="ri-edit-box-line"></i></a>
+              <button class="btn btn-link p-0" (click)="deleteUser(user.id)"><i class="ri-delete-bin-2-line"></i></button>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+      <ng-template #emptyMessage>
+        <tr>
+          <td colspan="6">No hay datos para mostrar</td>
+        </tr>
+      </ng-template>
+    </tbody>
+  </table>
+</div>
