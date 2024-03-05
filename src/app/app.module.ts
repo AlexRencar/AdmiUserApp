@@ -25,7 +25,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     ReactiveFormsModule
   ],
   providers: [
-    // Aquí puedes agregar servicios que quieras proporcionar de manera global en tu aplicación.
+    // Este espacio es para agregar servicios de manera global.
     // Por ejemplo, servicios de autenticación, servicios de datos, etc.
   ],
   bootstrap: [AppComponent]

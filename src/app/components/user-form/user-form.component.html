@@ -14,7 +14,6 @@
     <div class="invalid-feedback" [ngSwitch]="getCurrentError('email')">
       <span *ngSwitchCase="'required'">El campo email es requerido</span>
       <span *ngSwitchCase="'email'">Por favor, ingrese un email válido</span>
-      <!-- Agrega validaciones adicionales según sea necesario -->
     </div>
   </div>
 
@@ -25,7 +24,6 @@
     <div class="invalid-feedback" [ngSwitch]="getCurrentError('name')">
       <span *ngSwitchCase="'required'">El campo name es requerido</span>
       <span *ngSwitchCase="'maxlength'">El campo name debe contener 100 caracteres como máximo</span>
-      <!-- Agrega validaciones adicionales según sea necesario -->
     </div>
   </div>
 
@@ -35,7 +33,6 @@
     <input type="tel" formControlName="numero_celular" class="form-control {{ hasError('numero_celular') ? 'is-invalid' : '' }}" id="numeroCelularInput" placeholder="Número de celular (opcional)">
     <div class="invalid-feedback" [ngSwitch]="getCurrentError('numero_celular')">
       <span *ngSwitchCase="'pattern'">Por favor, ingrese un número de celular válido</span>
-      <!-- Agrega validaciones adicionales según sea necesario -->
     </div>
   </div>
 
@@ -46,7 +43,6 @@
     <div class="invalid-feedback" [ngSwitch]="getCurrentError('cedula')">
       <span *ngSwitchCase="'required'">El campo cédula es requerido</span>
       <span *ngSwitchCase="'maxlength'">El campo cédula debe contener 11 caracteres como máximo</span>
-      <!-- Agrega validaciones adicionales según sea necesario -->
     </div>
   </div>
 
@@ -78,7 +74,6 @@
   <div class="invalid-feedback" [ngSwitch]="getCurrentError('password')">
     <span *ngSwitchCase="'required'">El campo contraseña es requerido</span>
     <span *ngSwitchCase="'minlength'">La contraseña debe tener al menos 8 caracteres</span>
-    <!-- Agrega validaciones adicionales según sea necesario -->
   </div>
 </div>
 
@@ -89,7 +84,6 @@
   <div class="invalid-feedback" [ngSwitch]="getCurrentError('password_confirmation')">
     <span *ngSwitchCase="'required'">La verificación de contraseña es requerida</span>
     <span *ngSwitchCase="'mustMatch'">Las contraseñas deben coincidir</span>
-    <!-- Agrega validaciones adicionales según sea necesario -->
   </div>
 </div>
 

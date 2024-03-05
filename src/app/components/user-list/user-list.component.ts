@@ -24,22 +24,14 @@ export class UserListComponent implements OnInit {
     this.userService.deleteUser(id).subscribe(response => {
       this.showSuccessToast('Usuario eliminado');
       this.users = this.users.filter(user => user.id != id);
-      //this.calculateTotal();
     });
   }
 
   private loadDataIntoTable(): void {
     this.userService.getUsers().subscribe(users => {
       this.users = users;
-      //this.calculateTotal();
     });
   }
-
-  //private calculateTotal(): void {
-// this.total = this.users.reduce((accumulated, currentValue) => {
-  //  return accumulated + Number(currentValue.amount);
-  // }, 0);
-  //}
 
   private showSuccessToast(message: string): void {
     Toastify({

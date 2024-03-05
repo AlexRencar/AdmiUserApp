@@ -1,5 +1,5 @@
 
-# AdminUsersApp APP
+# AdminUsersApp
 
 Este proyecto se centra en el control de usuarios diarios, poniendo énfasis en el desarrollo de diversas interfaces destinadas a llevar a cabo operaciones CRUD con la tecnología Angular. Es importante mencionar que está estrechamente vinculado al proyecto [AdminUsersApp API](https://github.com/AlexRencar/AdmiUserApi.git), el cual ofrece una API para la ejecución de las distintas operaciones CRUD.
 
